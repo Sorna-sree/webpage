@@ -1,0 +1,84 @@
+<html>
+    <head>
+        <title>
+            addnumbers
+        </title>
+    </head>
+    <script> 
+        $(document).ready(function(){
+        $("#addbtn").click(function(e){  
+                var num = $("num1id").val(); 
+                var num = $("num2id").val(); 
+                var add_url = 'http://127.0.0.1:5000/addnumber' + num1 +num2; 
+                $.ajax({ 
+                    url: addnumber_url, 
+                    success: function(r){ 
+                        $("#resultbtn").val(r); 
+                    }
+                
+                });
+            
+            }
+            $("#subbtn").click(function(e){  
+                var num = $("num1id").val(); 
+                var num = $("num2id").val(); 
+                var add_url = 'http://127.0.0.1:5000/subnumber' + num1 +num2; 
+                $.ajax({ 
+                    url: addnumber_url, 
+                    success: function(r){ 
+                        $("#subresult").val(r); 
+                    }
+                
+                });
+            
+            }
+            $("#subbtn").click(function(e){  
+                var num = $("num1id").val(); 
+                var num = $("num2id").val(); 
+                var add_url = 'http://127.0.0.1:5000/subnumber' + num1 +num2; 
+                $.ajax({ 
+                    url: addnumber_url, 
+                    success: function(r){ 
+                        $("#subresult").val(r); 
+                    }
+                
+                });
+            
+            }
+            $("#mulbtn").click(function(e){  
+                var num = $("num1id").val(); 
+                var num = $("num2id").val(); 
+                var add_url = 'http://127.0.0.1:5000/mulnumber' + num1 +num2; 
+                $.ajax({ 
+                    url: addnumber_url, 
+                    success: function(r){ 
+                        $("#mulresult").val(r); 
+                    }
+                
+                });
+            
+            }
+        
+        
+        
+              
+    </script> 
+
+          
+    <body>
+        Number1:<input id="num1id" type="text" name="num1">
+        <br>
+        <br>
+        Number2:<input id="num2id" type="text" name="num2">
+        <br>
+        <br>
+        <button id="addbtn">add</button>
+        <label id="addresult"></label>
+        <button id="subbtn">sub</button>
+        <label id="subresult"></label>
+        <button id="mulbtn">mul</button>
+        <label id="mulresult"></label>
+
+
+    </body>
+</html>
