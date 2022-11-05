@@ -3,75 +3,53 @@
         <title>
             addnumbers
         </title>
+        
     </head>
+    <script src="https://code.jquery.com/jquery-3.6.1.js"></script>
     <script> 
         $(document).ready(function(){
-        $("#addbtn").click(function(e){  
-                var num = $("num1id").val(); 
-                var num = $("num2id").val(); 
-                var add_url = 'http://127.0.0.1:5000/addnumber' + num1 +num2; 
-                $.ajax({ 
-                    url: addnumber_url, 
-                    success: function(r){ 
-                        $("#resultbtn").val(r); 
-                    }
-                
-                });
-            
-            }
-            $("#subbtn").click(function(e){  
-                var num = $("num1id").val(); 
-                var num = $("num2id").val(); 
-                var add_url = 'http://127.0.0.1:5000/subnumber' + num1 +num2; 
-                $.ajax({ 
-                    url: addnumber_url, 
-                    success: function(r){ 
-                        $("#subresult").val(r); 
-                    }
-                
-                });
-            
-            }
-            $("#subbtn").click(function(e){  
-                var num = $("num1id").val(); 
-                var num = $("num2id").val(); 
-                var add_url = 'http://127.0.0.1:5000/subnumber' + num1 +num2; 
-                $.ajax({ 
-                    url: addnumber_url, 
-                    success: function(r){ 
-                        $("#subresult").val(r); 
-                    }
-                
-                });
-            
-            }
-            $("#mulbtn").click(function(e){  
-                var num = $("num1id").val(); 
-                var num = $("num2id").val(); 
-                var add_url = 'http://127.0.0.1:5000/mulnumber' + num1 +num2; 
-                $.ajax({ 
-                    url: addnumber_url, 
-                    success: function(r){ 
-                        $("#mulresult").val(r); 
-                    }
-                
-                });
-            
-            }
-        
-        
-        
-              
-    </script> 
+            $("#addbtn").click(function(e){ 
 
-          
+                var num1 = $("#num1id").val();
+                var num2 = $("#num2id").val();
+                var addnumber_url = 'http://127.0.0.1:5000/addnumber' + num1 +num2; 
+                $.ajax({ 
+                    url: addnumber_url, 
+                    success: function(r){ 
+                        $("#addresult").text(r); 
+                    }, 
+                    error: function(r){ 
+                        $("#addresult").text('Invalid number'); 
+                    } 
+                }); 
+            }); 
+            //}); 
+            $("#subbtn").click(function(e){ 
+
+                var num = $("#num1id").val();
+                var num = $("#num2id").val();
+                var subnumber_url = 'http://127.0.0.1:5000/subnumber' + num1 +num2; 
+                $.ajax({ 
+                    url: subnumber_url, 
+                    success: function(r){ 
+                        $("#asubresult").text(r); 
+                    }, 
+                    error: function(r){ 
+                        $("#subresult").text('Invalid number'); 
+                    } 
+                }); 
+            }); 
+            }); 
+        </script>
+    
+ 
     <body>
         Number1:<input id="num1id" type="text" name="num1">
-        <br>
-        <br>
+    <br/>
+        <br/>
         Number2:<input id="num2id" type="text" name="num2">
-        <br>
-        <br>
+        <br/>
+        
         <button id="addbtn">add</button>
         <label id="addresult"></label>
         <button id="subbtn">sub</button>
