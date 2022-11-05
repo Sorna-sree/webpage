@@ -12,7 +12,8 @@
 
                 var num1 = $("#num1id").val();
                 var num2 = $("#num2id").val();
-                var addnumber_url = 'http://127.0.0.1:5000/addnumber' + num1 +num2; 
+                var addnumber_url = 'http://127.0.0.1:5000/addnumber/'+num1+'/'+num2; 
+                alert(addnumber_url);
                 $.ajax({ 
                     url: addnumber_url, 
                     success: function(r){ 
@@ -26,13 +27,13 @@
             //}); 
             $("#subbtn").click(function(e){ 
 
-                var num = $("#num1id").val();
-                var num = $("#num2id").val();
-                var subnumber_url = 'http://127.0.0.1:5000/subnumber' + num1 +num2; 
+                var num1 = $("#num1id").val();
+                var num2 = $("#num2id").val();
+                var subnumber_url = 'http://127.0.0.1:5000/subnumber/' + num1 +'/' + num2; 
                 $.ajax({ 
                     url: subnumber_url, 
                     success: function(r){ 
-                        $("#asubresult").text(r); 
+                        $("#subresult").text(r); 
                     }, 
                     error: function(r){ 
                         $("#subresult").text('Invalid number'); 
