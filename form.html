@@ -1,0 +1,51 @@
+<html> 
+     <head> 
+        <title>mywebpage</title> 
+         <script src="https://code.jquery.com/jquery-3.6.1.js"></script> 
+         <script> 
+            $(document).ready(function(){ 
+ 
+ 
+            $("#btnGetdetails").click(function(e){ 
+                var form_url = 'http://127.0.0.1:5000/form';
+                var Array; 
+                $.ajax( 
+                { 
+                    url: form_url, 
+                    success: function(date){ 
+                        //var firstName = '';
+                        for ( var index in date){ 
+                            names = ' Hello '+ date[index].salutation +
+                            date[index].firstName+'  . '
+                            +date[index].lastName
+                            +'  Your occupation is '+ date[index].Occupation +'.'+
+                            ' Your phone number is ' + date[index].phoneNo + ' . ';
+                            $("#lblfamilyInfo").text(names);
+                            var Array=Array+ names;
+                        } 
+                        $("#lblfamilyInfo").text(Array);                         
+                    }, 
+                    error: function(error_msg){ 
+                        $("#lblfamilyInfo").text(error_msg.responseText); 
+                    } 
+                }                 
+                );
+            }); 
+ 
+ 
+            }); 
+ 
+             
+ 
+             
+        </script>
+
+         
+     </head> 
+     <body> 
+         <h1>family members details</h1> 
+         <button id="btnGetdetails">Get all family members details</button> 
+         <label id="lblfamilyInfo"></label> 
+  
+     </body> 
+ </html>
